@@ -1,0 +1,72 @@
+import turtle
+
+turtle.goto(50, 50)
+turtle.goto(25, 25)
+turtle.goto(50, 0)
+
+turtle.penup()
+turtle.goto(45, 25)
+turtle.pendown()
+turtle.goto(65, 25)
+turtle.goto(65, 60)
+turtle.goto(65, -10)
+
+turtle.penup()
+turtle.goto(25, -35)
+turtle.right(90)
+turtle.pendown()
+turtle.circle(25)
+
+
+turtle.penup()
+turtle.goto(90, 50)
+turtle.pendown()
+turtle.goto(140, 50)
+turtle.goto(115, 50)
+turtle.goto(115, 60)
+turtle.penup()
+turtle.goto(100, 15)
+turtle.pendown()
+turtle.circle(15)
+
+turtle.penup()
+turtle.goto(130, 25)
+turtle.pendown()
+turtle.goto(140, 25)
+turtle.penup()
+turtle.goto(130, 5)
+turtle.pendown()
+turtle.goto(140, 5)
+turtle.penup()
+turtle.goto(140, 40)
+turtle.pendown()
+turtle.goto(140, -10)
+
+turtle.penup()
+turtle.goto(110, -10)
+turtle.pendown()
+turtle.goto(110, -50)
+turtle.goto(150, -50)
+
+
+turtle.penup()
+turtle.goto(160, 0)
+turtle.pendown()
+turtle.goto(210, 50)
+turtle.goto(185, 25)
+turtle.goto(210, 0)
+
+turtle.penup()
+turtle.goto(205, 25)
+turtle.pendown()
+turtle.goto(220, 25)
+turtle.goto(220, 60)
+turtle.goto(220, -10)
+
+turtle.penup()
+turtle.goto(170, -20)
+turtle.pendown()
+turtle.goto(220, -20)
+turtle.goto(220, -50)
+
+turtle.exitonclick()
