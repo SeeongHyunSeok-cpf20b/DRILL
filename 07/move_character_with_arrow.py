@@ -10,38 +10,17 @@ def handle_events():
     for event in events:
         if event.type == SDL_QUIT:
             running = False
-def draw_arrow():
-    global x, y
-    x, y = random.randint(0, KPU_WIDTH), random.randint(0, KPU_HEIGHT)
 
-def follow_arrow():
+def update_character():
     global x, y
     global char_x, char_y
-    global right
-    global stop
-    if x >= char_x:
-        right = True
-    else:
-        right = False
 
-    if right == True:
-        if char_x < x:
-            char_x += 1
-        if char_y < y:
-            char_y += 1
-        elif char_y > y:
-            char_y -= 1
-        if char_x == x and char_y == y:
-            stop = True
-    else:
-        if char_x > x:
-            char_x -= 1
-        if char_y < y:
-            char_y += 1
-        elif char_y > y:
-            char_y -= 1
-        if char_x == x and char_y == y:
-            stop = True
+    char_x = (1-0.01)*char_x + 0.01 * x
+    char_y = (1 - 0.01) * char_y + 0.01 * y
+
+    dist = (x-char_x)**2 + (y-char_y)**2
+    if dist < 10**2:
+        x, y = random.randint(0, KPU_WIDTH), random.randint(0, KPU_HEIGHT)
 
 open_canvas(KPU_WIDTH, KPU_HEIGHT)
 
@@ -57,22 +36,18 @@ frame = 0
 hide_cursor()
 
 right = True
-stop = False
 
 while running:
     clear_canvas()
     kpu_ground.draw(KPU_WIDTH // 2, KPU_HEIGHT // 2)
     hand_arrow.draw(x, y)
-    follow_arrow()
+    update_character()
     if right == True:
         character.clip_draw(frame * 100, 100 * 1, 100, 100, char_x, char_y)
     else:
         character.clip_draw(frame * 100, 0, 100, 100, char_x, char_y)
     update_canvas()
     frame = (frame + 1) % 8
-    if stop == True:
-        draw_arrow()
-        stop = False
     handle_events()
 
 close_canvas()
