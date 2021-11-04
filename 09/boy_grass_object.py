@@ -59,7 +59,7 @@ balls = [Ball() for i in range(1, 20+1)]
 
 running = True
 # game main loop code
-delay(3.0)
+
 while running:
     handle_events()
 
